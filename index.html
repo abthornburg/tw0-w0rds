@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ef">
+  <title>TW0 W0RDS — prototype</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">DAILY-STYLE PROTOTYPE</p>
+        <h1>TW<span>0</span> W<span>0</span>RDS</h1>
+      </div>
+      <div class="top-actions">
+        <button class="next-button" id="nextButton">N<span>3</span>XT</button>
+        <button class="icon-button" id="resetButton" title="Start this puzzle again" aria-label="Start this puzzle again">↻</button>
+      </div>
+    </header>
+
+    <section class="intro" aria-labelledby="themeLabel">
+      <p id="themeLabel" class="theme"></p>
+      <p class="instruction">Build the encoded two-word phrase. Numbers stand in for vowels.</p>
+      <p class="key" aria-label="Number key: 4 is A, 3 is E, 1 is I, 0 is O">4=A&nbsp;&nbsp; 3=E&nbsp;&nbsp; 1=I&nbsp;&nbsp; 0=O</p>
+    </section>
+
+    <section class="puzzle-card" aria-label="Puzzle">
+      <div id="tiles" class="tiles" aria-label="Encoded phrase; green tiles are solved and purple tiles are revealed by a hint"></div>
+      <p class="status-line" id="statusLine" role="status">Make a full-phrase guess to start.</p>
+    </section>
+
+    <section class="stats" aria-label="Game counters">
+      <div><span>GU<span>3</span>SS<span>3</span>S</span><strong id="guessCount">0/8</strong></div>
+      <div><span>H<span>1</span>NTS US<span>3</span>D</span><strong id="hintCount">0/4</strong></div>
+      <div><span>H<span>1</span>NTS B4NK<span>3</span>D</span><strong id="hintBank">1/4</strong></div>
+    </section>
+
+    <form id="guessForm" class="guess-form" novalidate>
+      <label for="guessInput">Your encoded guess</label>
+      <div class="guess-row">
+        <input id="guessInput" autocomplete="off" autocapitalize="characters" placeholder="Type letters and numbers" maxlength="24">
+        <button id="guessButton" type="submit">GU<span>3</span>SS</button>
+      </div>
+    </form>
+
+    <section class="actions" aria-label="Hint and sharing actions">
+      <button id="hintButton" class="secondary" disabled>R<span>3</span>V<span>3</span>4L 4 CH4R4CT<span>3</span>R</button>
+      <button id="shareButton" class="share" disabled>SH4R<span>3</span> R<span>3</span>5ULT</button>
+    </section>
+
+    <section id="result" class="result" hidden aria-live="polite">
+      <p class="result-kicker">PUZZL<span>3</span> C0MPL<span>3</span>T<span>3</span></p>
+      <h2 id="resultTitle">Y0U D<span>1</span>D <span>1</span>T!</h2>
+      <p id="resultStats"></p>
+      <div id="sharePreview" class="share-preview"></div>
+    </section>
+
+    <details class="notes">
+      <summary>Prototype notes</summary>
+      <p>Blank tiles show the encoded character type: <strong>#</strong> is a number and <strong>–</strong> is a letter. A whole correctly guessed word locks in green; selected reveals are purple. Hints bank after guesses 1, 3, 5, and 7.</p>
+    </details>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
